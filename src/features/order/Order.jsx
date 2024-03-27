@@ -7,6 +7,7 @@ import {
 } from '../../utils/helpers';
 import { getOrder } from '../../services/apiRestaurant.js';
 import OrderItem from './OrderItem.jsx';
+import UpdateOrder from './UpdateOrder.jsx';
 
 function Order() {
 	const order = useLoaderData();
@@ -87,6 +88,8 @@ function Order() {
 					To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
 				</p>
 			</div>
+
+			{!priority && <UpdateOrder order={order} />}
 		</div>
 	);
 }
